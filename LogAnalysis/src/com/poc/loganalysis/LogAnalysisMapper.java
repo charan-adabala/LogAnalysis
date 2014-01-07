@@ -22,6 +22,7 @@ public class LogAnalysisMapper extends Mapper<LongWritable, Text, Text, Text> {
 				context.write(new Text(""), new Text(filteredLog));
 			}
 		 }else{
+			 
 		 }
 	};
 

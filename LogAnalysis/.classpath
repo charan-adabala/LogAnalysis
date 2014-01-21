@@ -52,5 +52,6 @@
 	<classpathentry kind="lib" path="/usr/local/hadoop/hadoop-minicluster-1.0.4.jar"/>
 	<classpathentry kind="lib" path="/usr/local/hadoop/hadoop-ant-1.0.4.jar"/>
 	<classpathentry kind="lib" path="/usr/local/hadoop/hadoop-tools-1.0.4.jar"/>
+	<classpathentry kind="lib" path="/mnt/hgfs/Charan_Hadoop/64bit/hive-0.4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

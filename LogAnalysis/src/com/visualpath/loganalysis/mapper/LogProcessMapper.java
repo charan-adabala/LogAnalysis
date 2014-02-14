@@ -22,7 +22,7 @@ public class LogProcessMapper extends Mapper<LongWritable, Text, Text, Text> {
 			if(filteredLog != null && filteredLog.length() > 0){
 				context.write(new Text(""), new Text(filteredLog));
 			}
-		 }else{
+		 }else{/*
 			 	String log = value.toString() ;
 			if (!(log.contains("pam_unix") || log.contains("sudo")
 					|| log.contains("Server listening on") || log.contains("Received disconnect"))) {
@@ -44,7 +44,7 @@ public class LogProcessMapper extends Mapper<LongWritable, Text, Text, Text> {
 					}
 				}
 			 	 
-		 }
+		 */}
 		
 	};
 

@@ -7,9 +7,12 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
+import com.visualpath.loganalysis.mapper.AccessLogMapper;
 import com.visualpath.loganalysis.mapper.LogProcessMapper;
+import com.visualpath.loganalysis.mapper.MyTextOutputFormat;
 /**
  * ProcessLogsClient: client to run the LogAnalysis job
  * @author Murthy
@@ -34,13 +37,15 @@ public class ProcessLogsClient {
     job.setJobName("Log Process");
     FileInputFormat.addInputPath(job, new Path("/user/hduser/LogAnalysis"));
 	FileOutputFormat.setOutputPath(job, new Path(ouputPath));
-  
+	
+	
     job.setMapperClass(LogProcessMapper.class);
+    job.setMapperClass(AccessLogMapper.class);
     job.setNumReduceTasks(0);
     
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(Text.class);
-
+    job.setOutputFormatClass(MyTextOutputFormat.class);
     job.waitForCompletion(true);
     System.out.println("Completed............");
   }

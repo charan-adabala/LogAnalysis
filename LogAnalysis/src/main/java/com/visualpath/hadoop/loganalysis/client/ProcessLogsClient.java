@@ -22,8 +22,6 @@ public class ProcessLogsClient {
 	  System.out.println("Started............");
 	  
 	  String ouputPath = args[1];
-	//String ouputPath = "/user/hduser/LogAnalysisOutput";
-	
 	//Deleting existing path -- starts
 	Path p = new Path(ouputPath);
 	Configuration config = new Configuration();

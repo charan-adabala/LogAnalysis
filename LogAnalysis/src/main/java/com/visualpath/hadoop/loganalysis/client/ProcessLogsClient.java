@@ -10,6 +10,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import com.visualpath.hadoop.loganalysis.mapper.AccessLogMapper;
+import com.visualpath.hadoop.loganalysis.mapper.SecureLogMapper;
 import com.visualpath.hadoop.loganalysis.mapper.LogProcessMapper;
 /**
  * ProcessLogsClient: client to run the LogAnalysis job
@@ -38,6 +39,7 @@ public class ProcessLogsClient {
 	
     job.setMapperClass(LogProcessMapper.class);
     job.setMapperClass(AccessLogMapper.class);
+    job.setMapperClass(SecureLogMapper.class);
     job.setNumReduceTasks(0);
     
     job.setOutputKeyClass(Text.class);

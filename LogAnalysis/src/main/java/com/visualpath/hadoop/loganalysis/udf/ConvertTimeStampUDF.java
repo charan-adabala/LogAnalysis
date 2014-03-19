@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import org.apache.hadoop.hive.ql.exec.UDF;
 import org.apache.hadoop.io.Text;
@@ -36,23 +37,15 @@ public final class ConvertTimeStampUDF extends UDF {
 	}
 	
 	static int convertMonth(String mon) {
-		int mm = 1;
-		switch(mon) {
-		case "Jan" : mm= 1; break;
-		case "Feb" : mm= 2; break;
-		case "Mar" : mm= 3; break;
-		case "Apr" : mm= 4; break;
-		case "May" : mm= 5; break;
-		case "Jun" : mm= 6; break;
-		case "Jul" : mm= 7; break;
-		case "Aug" : mm= 8; break;
-		case "Sep" : mm= 9; break;
-		case "Oct" : mm= 10; break;
-		case "Nov" : mm= 11; break;
-		case "Dec" : mm= 12; break;
-		default  : mm= 1; 
+		Calendar cal = Calendar.getInstance();
+		try {
+			cal.setTime(new SimpleDateFormat("MMM").parse(mon));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return mm;
+		int monthInt = cal.get(Calendar.MONTH);
+		return ++monthInt;
 	}
 	
 }

@@ -11,7 +11,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import com.visualpath.hadoop.loganalysis.mapper.AccessLogMapper;
 import com.visualpath.hadoop.loganalysis.mapper.LogProcessMapper;
-import com.visualpath.hadoop.loganalysis.mapper.MyTextOutputFormat;
 /**
  * ProcessLogsClient: client to run the LogAnalysis job
  * @author Murthy
@@ -45,7 +44,6 @@ public class ProcessLogsClient {
     
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(Text.class);
-    job.setOutputFormatClass(MyTextOutputFormat.class);
     job.waitForCompletion(true);
     System.out.println("Completed............");
   }

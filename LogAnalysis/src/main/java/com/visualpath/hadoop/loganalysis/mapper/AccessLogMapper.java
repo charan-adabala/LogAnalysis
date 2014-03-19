@@ -1,26 +1,17 @@
 package com.visualpath.hadoop.loganalysis.mapper;
 
-import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 /**
- * AccessLogMapper: AccessLogMapper performing the Access.log process
+ * AccessLogMapper: AccessLogMapper performing the ccess.log process
  * @author Charan Adabala
  *
  */
 public class AccessLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 	protected void map(LongWritable key,Text value,Context context)
 			throws java.io.IOException, InterruptedException {
-		org.apache.hadoop.fs.Path outputPath = FileOutputFormat.getOutputPath(context);
-		if (outputPath != null) {
-			FileSystem fileSys = outputPath.getFileSystem(context.getConfiguration());
-		      if (fileSys.exists(outputPath)) {
-		    	org.apache.hadoop.fs.Path path = new org.apache.hadoop.fs.Path("/user/hduser/LogAnalysisOutput/AccessLog");
-		        fileSys.create(path).close();
-		      }
-		}
+		
 		String log  = value.toString();
 		String filterdLine = log.replaceAll("[\"\\[\\]]","");
 		String[] splitValue = filterdLine.split(" ");

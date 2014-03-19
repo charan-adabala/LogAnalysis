@@ -3,6 +3,10 @@ package com.visualpath.hadoop.loganalysis.mapper;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  * SecureLogMapper: SecureLogMapper performing the Secure.log process
  * @author Charan Adabala
@@ -14,8 +18,18 @@ public class SecureLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 		String log = value.toString() ;
 		if (!(log.contains("pam_unix") || log.contains("sudo")
 				|| log.contains("Server listening on") || log.contains("Received disconnect"))) {
-			String timeStamp = log.substring(0, 24);
-			String www = log.substring(24, 29);
+			String time = log.substring(4, 24);
+			DateFormat readFormat = new SimpleDateFormat("MMM dd yyyy hh:mm:ss");
+			DateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy:hh:mm:ss");
+			Date date;
+			String timeStamp = null;
+			try {
+				date = readFormat.parse(time);
+				timeStamp = dateFormat.format(date);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			String www = log.substring(25, 29);
 			String details = log.substring(30);
 			String detailsContent  = null;
 			String filterdLine = details.replaceAll("[\"\\[\\]\\:]", "");

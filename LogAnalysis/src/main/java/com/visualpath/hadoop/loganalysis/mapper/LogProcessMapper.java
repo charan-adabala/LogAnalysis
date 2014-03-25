@@ -28,6 +28,11 @@ public class LogProcessMapper extends Mapper<LongWritable, Text, Text, Text> {
 			 SecureLogMapper secureLogMapper = new SecureLogMapper();
 			 secureLogMapper.map(key, value, context);
 			}
+		 else if(filename.equalsIgnoreCase("access_combined.log")){
+				// LogProcessMapper.setFilename("secure.log");
+			 	SplunkAccessLogMapper splunkAccessLogMapper = new SplunkAccessLogMapper();
+			 	splunkAccessLogMapper.map(key, value, context);
+				}
 	}
 
 }

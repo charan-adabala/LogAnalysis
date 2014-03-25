@@ -4,7 +4,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 /**
- * AccessLogMapper: AccessLogMapper performing the ccess.log process
+ * AccessLogMapper: AccessLogMapper performing the access.log process
  * @author Charan Adabala
  *
  */
@@ -16,7 +16,7 @@ public class AccessLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 		String filterdLine = log.replaceAll("[\"\\[\\]]","");
 		String[] splitValue = filterdLine.split(" ");
 		String filteredLog = splitValue[0]+","+splitValue[3]+","+splitValue[4]+","+splitValue[5]+","+splitValue[6]+","+splitValue[7]+
-							","+splitValue[8]+","+splitValue[9]+","+splitValue[10]+","+splitValue[11];
+				","+splitValue[8]+","+splitValue[9]+","+splitValue[10]+","+splitValue[11]+","+splitValue[20]+","+splitValue[21];
 		if(filteredLog != null && filteredLog.length() > 0){
 			context.write(new Text(""), new Text(filteredLog));
 		}

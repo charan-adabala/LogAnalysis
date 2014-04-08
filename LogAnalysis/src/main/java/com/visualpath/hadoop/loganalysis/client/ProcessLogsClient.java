@@ -7,6 +7,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import com.visualpath.hadoop.loganalysis.mapper.AccessLogMapper;
@@ -39,9 +40,9 @@ public class ProcessLogsClient {
 	
 	
     job.setMapperClass(LogProcessMapper.class);
-    job.setMapperClass(AccessLogMapper.class);
-    job.setMapperClass(SecureLogMapper.class);
-     job.setMapperClass(SplunkAccessLogMapper.class);
+    //job.setMapperClass(AccessLogMapper.class);
+    //job.setMapperClass(SecureLogMapper.class);
+    //job.setMapperClass(SplunkAccessLogMapper.class);
     job.setNumReduceTasks(0);
     
     job.setOutputKeyClass(Text.class);

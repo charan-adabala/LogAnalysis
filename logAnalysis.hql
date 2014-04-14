@@ -29,7 +29,7 @@ port STRING,
 ssh STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
-CREATE EXTERNAL TABLE IF NOT EXISTS combinedAccessLogData (
+CREATE EXTERNAL TABLE IF NOT EXISTS accessCombinedLogData (
 ip_address STRING,
 time_stamp STRING,
 request_type STRING,
@@ -42,6 +42,6 @@ url STRING,
 browser STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
-load data inpath '/user/LogAnalysisOutput/AccessLogs/part-m-00000' overwrite into table accessLogData;
-load data inpath '/user/LogAnalysisOutput/SecureLog/part-m-00000' overwrite into table secureLogData;
-load data inpath '/user/LogAnalysisOutput/CombinedAccessLog/part-m-00000' overwrite into table combinedAccessLogData;
+load data inpath '/user/cloudera/LogAnalysisOutput/AccessLog/part-m-00000' overwrite into table accessLogData;
+load data inpath '/user/cloudera/LogAnalysisOutput/SecureLog/part-m-00000' overwrite into table secureLogData;
+load data inpath '/user/cloudera/LogAnalysisOutput/AccessCombinedLog/part-m-00000' overwrite into table accessCombinedLogData;

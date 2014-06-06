@@ -42,6 +42,6 @@ url STRING,
 browser STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
-load data inpath '/user/cloudera/LogAnalysisOutput/AccessLog/part-m-00000' overwrite into table accessLogData;
-load data inpath '/user/cloudera/LogAnalysisOutput/SecureLog/part-m-00000' overwrite into table secureLogData;
-load data inpath '/user/cloudera/LogAnalysisOutput/AccessCombinedLog/part-m-00000' overwrite into table accessCombinedLogData;
+load data inpath '/user/LogAnalysisOutput/AccessLog/part-m-00000' overwrite into table accessLogData;
+load data inpath '/user/LogAnalysisOutput/SecureLog/part-m-00000' overwrite into table secureLogData;
+load data inpath '/user/LogAnalysisOutput/AccessCombinedLog/part-m-00000' overwrite into table accessCombinedLogData;

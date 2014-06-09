@@ -53,7 +53,7 @@ public class SecureLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 				String filteredLog = timeStamp + "," + www + ","
 						+ detailsContent;
 				if (filteredLog != null && filteredLog.length() > 0) {
-					context.write(new Text(""), new Text(filteredLog));
+					context.write(new Text(splitValue[8]+splitValue[0]), new Text(filteredLog));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

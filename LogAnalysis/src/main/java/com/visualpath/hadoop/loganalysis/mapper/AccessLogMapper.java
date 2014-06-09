@@ -25,7 +25,7 @@ public class AccessLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 					+ splitValue[11] + "," + splitValue[20] + ","
 					+ splitValue[21];
 			if (filteredLog != null && filteredLog.length() > 0) {
-				context.write(new Text(""), new Text(filteredLog));
+				context.write(new Text(splitValue[0]+splitValue[3]), new Text(filteredLog));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

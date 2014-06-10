@@ -45,13 +45,13 @@ public class SecureLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 							+ splitValue[4] + " " + splitValue[5] + " "
 							+ splitValue[6] + "," + splitValue[8] + ","
 							+ splitValue[10] + "," + splitValue[11];
-					keyValue = splitValue[8]+splitValue[0];
+					keyValue = splitValue[8]+" "+timeStamp;
 				} else if (splitValue.length == 10) {
 					detailsContent = splitValue[0] + "," + splitValue[1] + " "
 							+ splitValue[2] + " " + splitValue[3] + " "
 							+ splitValue[4] + "," + splitValue[6] + ","
 							+ splitValue[8] + "," + splitValue[9];
-					keyValue = splitValue[6]+splitValue[0];
+					keyValue = splitValue[6]+" "+timeStamp;
 				}
 				String filteredLog = timeStamp + "," + www + ","
 						+ detailsContent;

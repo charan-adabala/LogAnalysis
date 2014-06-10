@@ -16,9 +16,9 @@ import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 
 public class LogProcessReducer extends Reducer<Text, Text, Text, Text>{
 	
-	protected void reduce(Text key, Iterable<Text> values,
+	protected void reduce(Text key, Text values,
 			Context context)
 			throws IOException, InterruptedException {
-		 context.write(key, new Text(values.toString()));
+		 context.write(key, new Text(values));
 	}
 }

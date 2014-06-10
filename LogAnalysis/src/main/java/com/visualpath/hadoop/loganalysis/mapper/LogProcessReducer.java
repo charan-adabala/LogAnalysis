@@ -20,6 +20,7 @@ public class LogProcessReducer extends Reducer<Text, Text, Text, Text>{
 			Context context)
 			throws IOException, InterruptedException {
 			System.out.println(values);
-		 context.write(key, new Text(values));
+			String log =  values.toString().replace("\t", "");
+		 context.write(key, new Text(log));
 	}
 }

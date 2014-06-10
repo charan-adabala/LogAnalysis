@@ -31,7 +31,7 @@ public class ProcessLogsClient {
 	Configuration config = new Configuration();
 	//config.set("mapred.textoutputformat.separator", ",");
 	//config.set("mapreduce.output.key.field.separator", ",");
-	config.set("mapreduce.input.keyvaluelinerecordreader.key.value.separator", ",");
+	//config.set("mapreduce.input.keyvaluelinerecordreader.key.value.separator", ",");
 	FileSystem fs = FileSystem.get(URI.create(ouputPath), config);
 	fs.delete(p); 
     // Deleting existing path -- ends
@@ -48,7 +48,7 @@ public class ProcessLogsClient {
     //job.setMapperClass(AccessLogMapper.class);
     //job.setMapperClass(SecureLogMapper.class);
     //job.setMapperClass(SplunkAccessLogMapper.class);
-    job.setNumReduceTasks(2);
+    job.setNumReduceTasks(1);
     
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(Text.class);

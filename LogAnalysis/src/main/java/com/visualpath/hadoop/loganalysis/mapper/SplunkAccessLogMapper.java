@@ -22,17 +22,17 @@ public class SplunkAccessLogMapper extends
 		String filteredLog = null;
 		try {
 			if (!splitValue[5].contains("signon_error")) {
-				filteredLog = splitValue[0] + "," + splitValue[3] + ","
-						+ splitValue[4] + "," + splitValue[5] + ","
-						+ splitValue[6].split("/")[0] + ","
-						+ splitValue[6].split("/")[1] + "," + splitValue[7]
-						+ "," + splitValue[8] + "," + splitValue[9] + ","
-						+ splitValue[10] + "," + splitValue[19];
+				filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
+						+ splitValue[4] + "\t" + splitValue[5] + "\t"
+						+ splitValue[6].split("/")[0] + "\t"
+						+ splitValue[6].split("/")[1] + "\t" + splitValue[7]
+						+ "\t" + splitValue[8] + "," + splitValue[9] + "\t"
+						+ splitValue[10] + "\t" + splitValue[19];
 			} else {
-				filteredLog = splitValue[0] + "," + splitValue[3] + ","
-						+ splitValue[4] + "," + splitValue[5] + "," + " " + ","
-						+ " " + "," + splitValue[6] + "," + splitValue[7] + ","
-						+ splitValue[8] + "," + splitValue[9] + ","
+				filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
+						+ splitValue[4] + "\t" + splitValue[5] + "," + " " + ","
+						+ " " + "\t" + splitValue[6] + "\t" + splitValue[7] + "\t"
+						+ splitValue[8] + "\t" + splitValue[9] + "\t"
 						+ splitValue[18];
 			}
 			if (filteredLog != null && filteredLog.length() > 0) {

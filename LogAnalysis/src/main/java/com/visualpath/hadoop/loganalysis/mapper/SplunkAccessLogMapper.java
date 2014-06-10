@@ -36,7 +36,8 @@ public class SplunkAccessLogMapper extends
 						+ splitValue[18];
 			}
 			if (filteredLog != null && filteredLog.length() > 0) {
-				context.write(new Text(splitValue[0]+splitValue[3]), new Text(filteredLog));
+				context.write(new Text(""), new Text(filteredLog));
+				//splitValue[0]+splitValue[3]
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -27,13 +27,13 @@ public class SplunkAccessLogMapper extends
 						+ splitValue[6].split("/")[0] + "\t"
 						+ splitValue[6].split("/")[1] + "\t" + splitValue[7]
 						+ "\t" + splitValue[8] + "\t" + splitValue[9] + "\t"
-						+ splitValue[10] + "\t" + splitValue[19];
+						+ splitValue[10].split("/")[0] + "\t" + splitValue[19].split("/")[0];
 			} else {
 				filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
 						+ splitValue[4] + "\t" + splitValue[5] + "," + " " + ","
 						+ " " + "\t" + splitValue[6] + "\t" + splitValue[7] + "\t"
-						+ splitValue[8] + "\t" + splitValue[9] + "\t"
-						+ splitValue[18];
+						+ splitValue[8] + "\t" + splitValue[9].split("/")[0] + "\t"
+						+ splitValue[18].split("/")[0];
 			}
 			if (filteredLog != null && filteredLog.length() > 0) {
 				context.write(new Text(splitValue[0]+" "+splitValue[3]), new Text(filteredLog));

@@ -5,6 +5,7 @@ CREATE DATABASE log_analysis COMMENT 'Holds all log analysis project tables';
 use log_analysis;
 
 CREATE EXTERNAL TABLE IF NOT EXISTS accessLogData (
+key STRING,
 ip_address STRING,
 time_stamp STRING,
 request_type STRING,
@@ -20,6 +21,7 @@ browser3 STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
 CREATE EXTERNAL TABLE IF NOT EXISTS secureLogData (
+key STRING,
 time_stamp STRING,
 host_name STRING,
 process_id STRING,
@@ -30,6 +32,7 @@ ssh STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
 CREATE EXTERNAL TABLE IF NOT EXISTS accessCombinedLogData (
+key STRING,
 ip_address STRING,
 time_stamp STRING,
 request_type STRING,
@@ -39,7 +42,8 @@ protocol_version STRING,
 respcode STRING,
 bytes STRING,
 url STRING,
-browser STRING)
+browser1 STRING,
+browser2 STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 
 load data inpath '/user/hduser/LogAnalysisOutput/AccessLog/part-m-00000' overwrite into table accessLogData;

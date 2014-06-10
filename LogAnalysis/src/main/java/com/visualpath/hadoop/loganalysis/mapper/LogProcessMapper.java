@@ -30,6 +30,6 @@ public class LogProcessMapper extends Mapper<LongWritable, Text, Text, Text> {
 			 	SplunkAccessLogMapper splunkAccessLogMapper = new SplunkAccessLogMapper();
 			 	splunkAccessLogMapper.map(key, value, context);
 				}
-	}
+	};
 
 }

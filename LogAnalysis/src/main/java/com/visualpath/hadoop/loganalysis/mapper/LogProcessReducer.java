@@ -20,5 +20,5 @@ public class LogProcessReducer extends Reducer<Text, Text, Text, Text>{
 			Context context)
 			throws IOException, InterruptedException {
 			context.write(key, new Text(values));
-	}
+	};
 }

@@ -26,7 +26,7 @@ public class SplunkAccessLogMapper extends
 						+ splitValue[4] + "\t" + splitValue[5] + "\t"
 						+ splitValue[6].split("/")[0] + "\t"
 						+ splitValue[6].split("/")[1] + "\t" + splitValue[7]
-						+ "\t" + splitValue[8] + "," + splitValue[9] + "\t"
+						+ "\t" + splitValue[8] + "\t" + splitValue[9] + "\t"
 						+ splitValue[10] + "\t" + splitValue[19];
 			} else {
 				filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"

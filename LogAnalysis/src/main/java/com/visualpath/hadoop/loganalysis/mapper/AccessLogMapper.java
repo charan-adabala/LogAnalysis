@@ -18,11 +18,11 @@ public class AccessLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 		String filterdLine = log.replaceAll("[\"\\[\\]]", "");
 		String[] splitValue = filterdLine.split(" ");
 		try {
-			String filteredLog = splitValue[0] + "," + splitValue[3] + ","
-					+ splitValue[4] + "," + splitValue[5] + "," + splitValue[6]
-					+ "," + splitValue[7] + "," + splitValue[8] + ","
-					+ splitValue[9] + "," + splitValue[10] + ","
-					+ splitValue[11] + "," + splitValue[20] + ","
+			String filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
+					+ splitValue[4] + "\t" + splitValue[5] + "\t" + splitValue[6]
+					+ "\t" + splitValue[7] + "\t" + splitValue[8] + "\t"
+					+ splitValue[9] + "\t" + splitValue[10] + "\t"
+					+ splitValue[11] + "\t" + splitValue[20] + "\t"
 					+ splitValue[21];
 			if (filteredLog != null && filteredLog.length() > 0) {
 				context.write(new Text(splitValue[0]+" "+splitValue[3]), new Text(filteredLog));

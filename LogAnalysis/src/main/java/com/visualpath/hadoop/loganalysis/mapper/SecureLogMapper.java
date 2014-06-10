@@ -40,20 +40,20 @@ public class SecureLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 			String keyValue = null;
 			try {
 				if (splitValue.length == 12) {
-					detailsContent = splitValue[0] + "," + splitValue[1] + " "
+					detailsContent = splitValue[0] + "\t" + splitValue[1] + " "
 							+ splitValue[2] + " " + splitValue[3] + " "
 							+ splitValue[4] + " " + splitValue[5] + " "
-							+ splitValue[6] + "," + splitValue[8] + ","
-							+ splitValue[10] + "," + splitValue[11];
+							+ splitValue[6] + "\t" + splitValue[8] + "\t"
+							+ splitValue[10] + "\t" + splitValue[11];
 					keyValue = splitValue[8]+" "+timeStamp;
 				} else if (splitValue.length == 10) {
-					detailsContent = splitValue[0] + "," + splitValue[1] + " "
+					detailsContent = splitValue[0] + "\t" + splitValue[1] + " "
 							+ splitValue[2] + " " + splitValue[3] + " "
-							+ splitValue[4] + "," + splitValue[6] + ","
-							+ splitValue[8] + "," + splitValue[9];
+							+ splitValue[4] + "\t" + splitValue[6] + "\t"
+							+ splitValue[8] + "\t" + splitValue[9];
 					keyValue = splitValue[6]+" "+timeStamp;
 				}
-				String filteredLog = timeStamp + "," + www + ","
+				String filteredLog = timeStamp + "\t" + www + "\t"
 						+ detailsContent;
 				if (filteredLog != null && filteredLog.length() > 0) {
 					context.write(new Text(keyValue), new Text(filteredLog));

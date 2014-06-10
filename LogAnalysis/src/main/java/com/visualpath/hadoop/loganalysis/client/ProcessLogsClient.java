@@ -28,6 +28,7 @@ public class ProcessLogsClient {
 	//Deleting existing path -- starts
 	Path p = new Path(ouputPath);
 	Configuration config = new Configuration();
+	config.set("mapred.textoutputformat.separator", ",");
 	FileSystem fs = FileSystem.get(URI.create(ouputPath), config);
 	fs.delete(p); 
     // Deleting existing path -- ends

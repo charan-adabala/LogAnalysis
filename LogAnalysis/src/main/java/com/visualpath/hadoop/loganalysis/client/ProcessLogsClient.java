@@ -44,11 +44,8 @@ public class ProcessLogsClient {
 	
 	
     job.setMapperClass(LogProcessMapper.class);
-    job.setReducerClass(LogProcessReducer.class);
-    //job.setMapperClass(AccessLogMapper.class);
-    //job.setMapperClass(SecureLogMapper.class);
-    //job.setMapperClass(SplunkAccessLogMapper.class);
-    job.setNumReduceTasks(1);
+    //job.setReducerClass(LogProcessReducer.class);
+    job.setNumReduceTasks(0);
     
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(Text.class);

@@ -19,6 +19,7 @@ public class LogProcessReducer extends Reducer<Text, Text, Text, Text>{
 	protected void reduce(Text key, Text values,
 			Context context)
 			throws IOException, InterruptedException {
+			System.out.println(values);
 		 context.write(key, new Text(values));
 	}
 }

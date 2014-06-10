@@ -37,6 +37,7 @@ public class SecureLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 			String detailsContent = null;
 			String filterdLine = details.replaceAll("[\"\\[\\]\\:]", "");
 			String[] splitValue = filterdLine.split(" ");
+			String keyValue = null;
 			try {
 				if (splitValue.length == 12) {
 					detailsContent = splitValue[0] + "," + splitValue[1] + " "
@@ -44,16 +45,18 @@ public class SecureLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 							+ splitValue[4] + " " + splitValue[5] + " "
 							+ splitValue[6] + "," + splitValue[8] + ","
 							+ splitValue[10] + "," + splitValue[11];
+					keyValue = splitValue[8]+splitValue[0];
 				} else if (splitValue.length == 10) {
 					detailsContent = splitValue[0] + "," + splitValue[1] + " "
 							+ splitValue[2] + " " + splitValue[3] + " "
 							+ splitValue[4] + "," + splitValue[6] + ","
 							+ splitValue[8] + "," + splitValue[9];
+					keyValue = splitValue[6]+splitValue[0];
 				}
 				String filteredLog = timeStamp + "," + www + ","
 						+ detailsContent;
 				if (filteredLog != null && filteredLog.length() > 0) {
-					context.write(new Text(splitValue[8]+splitValue[0]), new Text(filteredLog));
+					context.write(new Text(keyValue), new Text(filteredLog));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

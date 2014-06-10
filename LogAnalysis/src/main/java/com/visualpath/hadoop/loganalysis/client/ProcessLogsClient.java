@@ -31,6 +31,7 @@ public class ProcessLogsClient {
 	Configuration config = new Configuration();
 	//config.set("mapred.textoutputformat.separator", ",");
 	//config.set("mapreduce.output.key.field.separator", ",");
+	config.set("mapreduce.input.keyvaluelinerecordreader.key.value.separator", ",");
 	FileSystem fs = FileSystem.get(URI.create(ouputPath), config);
 	fs.delete(p); 
     // Deleting existing path -- ends

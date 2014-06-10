@@ -12,6 +12,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import com.visualpath.hadoop.loganalysis.mapper.AccessLogMapper;
 import com.visualpath.hadoop.loganalysis.mapper.LogProcessMapper;
+import com.visualpath.hadoop.loganalysis.mapper.LogProcessReducer;
 import com.visualpath.hadoop.loganalysis.mapper.SecureLogMapper;
 import com.visualpath.hadoop.loganalysis.mapper.SplunkAccessLogMapper;
 /**
@@ -28,7 +29,8 @@ public class ProcessLogsClient {
 	//Deleting existing path -- starts
 	Path p = new Path(ouputPath);
 	Configuration config = new Configuration();
-	config.set("mapred.textoutputformat.separator", ",");
+	//config.set("mapred.textoutputformat.separator", ",");
+	//config.set("mapreduce.output.key.field.separator", ",");
 	FileSystem fs = FileSystem.get(URI.create(ouputPath), config);
 	fs.delete(p); 
     // Deleting existing path -- ends
@@ -41,6 +43,7 @@ public class ProcessLogsClient {
 	
 	
     job.setMapperClass(LogProcessMapper.class);
+    job.setReducerClass(LogProcessReducer.class);
     //job.setMapperClass(AccessLogMapper.class);
     //job.setMapperClass(SecureLogMapper.class);
     //job.setMapperClass(SplunkAccessLogMapper.class);

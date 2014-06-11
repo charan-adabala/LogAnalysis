@@ -18,7 +18,7 @@ url STRING,
 browser1 STRING,
 browser2 STRING,
 browser3 STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
 CREATE EXTERNAL TABLE IF NOT EXISTS secureLogData (
 key STRING,
@@ -29,7 +29,7 @@ message STRING,
 ip_address STRING,
 port STRING,
 ssh STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
 CREATE EXTERNAL TABLE IF NOT EXISTS accessCombinedLogData (
 key STRING,
@@ -44,7 +44,7 @@ bytes STRING,
 url STRING,
 browser1 STRING,
 browser2 STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
 load data inpath '/user/hduser/LogAnalysisOutput/AccessLog/part-m-00000' overwrite into table accessLogData;
 load data inpath '/user/hduser/LogAnalysisOutput/SecureLog/part-m-00000' overwrite into table secureLogData;

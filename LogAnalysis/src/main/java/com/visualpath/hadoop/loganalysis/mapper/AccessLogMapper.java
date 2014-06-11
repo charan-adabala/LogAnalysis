@@ -19,14 +19,14 @@ public class AccessLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 		String[] splitValue = filterdLine.split(" ");
 		String filteredLog = null;
 		try {
-			if (splitValue.length != 28) {
+			if (splitValue.length == 28) {
 				filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
 						+ splitValue[4] + "\t" + splitValue[5] + "\t"
 						+ splitValue[6] + "\t" + splitValue[7] + "\t"
 						+ splitValue[8] + "\t" + splitValue[9] + "\t"
 						+ splitValue[10] + "\t" + splitValue[11].split("/")[0]
-						+ "\t" + splitValue[20].split("/")[0] + "\t"
-						+ splitValue[21].split("/")[0];
+						+ "\t" + "\t" + "\t" + splitValue[21].split("/")[0];
+				
 			}
 			if (splitValue.length == 34) {
 				filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
@@ -41,7 +41,8 @@ public class AccessLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 						+ splitValue[6] + "\t" + splitValue[7] + "\t"
 						+ splitValue[8] + "\t" + splitValue[9] + "\t"
 						+ splitValue[10] + "\t" + splitValue[11].split("/")[0]
-						+ "\t" + "\t" + "\t" + splitValue[21].split("/")[0];
+						+ "\t" + splitValue[20].split("/")[0] + "\t"
+						+ splitValue[21].split("/")[0];
 			}
 
 			if (filteredLog != null && filteredLog.length() > 0) {

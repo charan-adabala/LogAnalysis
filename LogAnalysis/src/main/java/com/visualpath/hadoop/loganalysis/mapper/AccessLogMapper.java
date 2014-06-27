@@ -25,10 +25,10 @@ public class AccessLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 						+ splitValue[6] + "\t" + splitValue[7] + "\t"
 						+ splitValue[8] + "\t" + splitValue[9] + "\t"
 						+ splitValue[10] + "\t" + splitValue[11].split("/")[0]
-						+ "\t" + "\t" + "\t" + splitValue[21].split("/")[0];
+						+ "\t" + splitValue[19].split("/")[0] + "\t"
+						+ splitValue[21].split("/")[0];
 				
-			}
-			if (splitValue.length == 25) {
+			}else if (splitValue.length == 25) {
 				filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
 						+ splitValue[4] + "\t" + splitValue[5] + "\t"
 						+ splitValue[6] + "\t" + splitValue[7] + "\t"
@@ -37,16 +37,21 @@ public class AccessLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 						+ "\t" + splitValue[22].split("/")[0] + "\t"
 						+ splitValue[23].split("/")[0];
 
-			}
-			if (splitValue.length == 27 || splitValue.length == 22) {
+			}else if (splitValue.length == 27) {
 				filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
 						+ splitValue[4] + "\t" + splitValue[5] + "\t"
 						+ splitValue[6] + "\t" + splitValue[7] + "\t"
 						+ splitValue[8] + "\t" + splitValue[9] + "\t"
 						+ splitValue[10] + "," + splitValue[11].split("/")[0]
 						+ "\t" + "\t" + "\t" + "\t";
-			}
-			if (splitValue.length == 30) {
+			}else if (splitValue.length == 22) {
+				filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
+						+ splitValue[4] + "\t" + splitValue[5] + "\t"
+						+ splitValue[6] + "\t" + splitValue[7] + "\t"
+						+ splitValue[8] + "\t" + splitValue[9] + "\t"
+						+ splitValue[10] + "," + splitValue[11].split("/")[0]
+						+ "\t" + splitValue[19].split("/")[0] + "\t" + splitValue[20].split("/")[0];
+			}else if (splitValue.length == 30) {
 				filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
 						+ splitValue[4] + "\t" + splitValue[5] + "\t"
 						+ splitValue[6] + "\t" + splitValue[7] + "\t"
@@ -54,8 +59,7 @@ public class AccessLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 						+ splitValue[10] + "\t" + splitValue[11].split("/")[0]
 						+ "\t" + splitValue[22].split("/")[0] + "\t"
 						+ splitValue[28].split("/")[0];
-			}
-			if (splitValue.length == 34) {
+			}else if (splitValue.length == 34) {
 				filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
 						+ splitValue[4] + "\t" + splitValue[5] + "\t"
 						+ splitValue[6] + "\t" + splitValue[7] + "\t"

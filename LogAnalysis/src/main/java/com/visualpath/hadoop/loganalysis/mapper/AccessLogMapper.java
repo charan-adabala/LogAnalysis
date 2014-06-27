@@ -39,7 +39,15 @@ public class AccessLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 					}
 				
 			}else if (splitValue.length == 25) {
-				if(filterdLine.contains("AppleWebKit")){
+				if(filterdLine.contains("AppleWebKit") && filterdLine.contains("Chrome")){
+					filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
+							+ splitValue[4] + "\t" + splitValue[5] + "\t"
+							+ splitValue[6] + "\t" + splitValue[7] + "\t"
+							+ splitValue[8] + "\t" + splitValue[9] + "\t"
+							+ splitValue[10] + "\t" + splitValue[11].split("/")[0]
+							+ "\t" + splitValue[22].split("/")[0] + "\t"
+							+ splitValue[23].split("/")[0];
+				}else if(filterdLine.contains("AppleWebKit")){
 					filteredLog = splitValue[0] + "\t" + splitValue[3] + "\t"
 							+ splitValue[4] + "\t" + splitValue[5] + "\t"
 							+ splitValue[6] + "\t" + splitValue[7] + "\t"
@@ -71,7 +79,7 @@ public class AccessLogMapper extends Mapper<LongWritable, Text, Text, Text> {
 						+ splitValue[4] + "\t" + splitValue[5] + "\t"
 						+ splitValue[6] + "\t" + splitValue[7] + "\t"
 						+ splitValue[8] + "\t" + splitValue[9] + "\t"
-						+ splitValue[10] + "," + splitValue[11].split("/")[0]
+						+ splitValue[10] + "\t" + splitValue[11].split("/")[0]
 						+ "\t" + " " + "\t" + " ";
 			}else if (splitValue.length == 22) {
 				if(filterdLine.contains("Trident")){

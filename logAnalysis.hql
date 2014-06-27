@@ -1,3 +1,7 @@
+DROP TABLE log_analysis.accessLogData;
+DROP TABLE log_analysis.secureLogData;
+DROP TABLE log_analysis.accessCombinedLogData;
+
 DROP DATABASE IF EXISTS log_analysis;
 
 CREATE DATABASE log_analysis COMMENT 'Holds all log analysis project tables';

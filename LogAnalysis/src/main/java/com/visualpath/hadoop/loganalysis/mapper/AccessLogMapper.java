@@ -4,6 +4,8 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
+
+
 /**
  * AccessLogMapper: AccessLogMapper performing the access.log process
  * 
